@@ -4,7 +4,7 @@ use warnings;
 use Benchmark::Timer;
 use base qw(Template::Plugin);
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub new {
     my $class   = shift;
@@ -34,7 +34,9 @@ Processing
       ... do something you want to measure the time ...
   [% CALL timer.stop('part2') %]
 
-  [% timer.report %]
+  [% FOREACH report IN timer.reports %]
+    [% report %]
+  [% END %]
 
 =head1 DESCRIPTION
 
